@@ -1,16 +1,37 @@
-# React + Vite
+# Task 3 - React Native Performance & Debugging
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Question 1
 
-Currently, two official plugins are available:
+### Why does FlatList become laggy with 5000 items?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+When FlatList contains a very large number of items, more data needs to be rendered on the screen. This can increase memory usage and affect scrolling performance.
 
-## React Compiler
+### How would I optimize it?
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Use React.memo to reduce unnecessary re-renders.
+* Use keyExtractor for unique keys.
+* Use getItemLayout when item sizes are fixed.
+* Use removeClippedSubviews to remove off-screen items.
+* Use initialNumToRender to render fewer items at first.
+* Use maxToRenderPerBatch and windowSize for better rendering performance.
+* Avoid inline functions where possible.
+* Use Pagination or Infinite Scroll for large data.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Question 2
+
+### How would I identify excessive re-renders?
+
+* Use React DevTools Profiler.
+* Use console.log render tracking.
+* Check if components are rendering multiple times unnecessarily.
+
+### How would I fix excessive re-renders?
+
+* Use React.memo.
+* Use useCallback for functions.
+* Use useMemo for expensive calculations.
+* Optimize state updates.
+* Avoid unnecessary parent component re-renders.
+* Optimize Context usage.

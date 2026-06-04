@@ -17,7 +17,6 @@ const App = () => {
         <Route path="/home" element={<Homepage />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/users" element={<FetchAPI />} />
-        <Route path="/users/:id/:name" element={<UserDetails />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </section>
